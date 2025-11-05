@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import teahouseco.com.demo.Models.Event;
 import teahouseco.com.demo.Repositories.CustomerRepository;
+import teahouseco.com.demo.Repositories.EventRepository;
 
 import java.util.List;
 
@@ -11,10 +12,10 @@ import java.util.List;
 public class JPAServiceImplementation implements JPAService {
 
     @Autowired
-    CustomerRepository customerRepository;
+    EventRepository eventRepository;
 
     @Override
     public List<Event> getAllEvents() {
-        return List.of();
+        return eventRepository.findAll();
     }
 }
