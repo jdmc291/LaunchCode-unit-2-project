@@ -4,7 +4,7 @@ import teahouseco.com.demo.Models.Event;
 
 import java.util.List;
 
-public interface TeaService {
+public interface JPAService {
 
     List<Event> getAllEvents();
 
