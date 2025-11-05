@@ -10,6 +10,7 @@ public class Event {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "event_id", nullable = false, updatable = false)
+    @Id
     public int event_id;
 
     public String event_name;

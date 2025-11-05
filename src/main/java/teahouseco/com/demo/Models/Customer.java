@@ -11,6 +11,7 @@ import java.util.List;
 public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id", nullable = false,updatable = false)
+    @Id
     public int customer_id;
     public String first_name;
     public String last_name;
