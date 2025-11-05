@@ -22,9 +22,8 @@ public class EventsController {
         try{
             return new ResponseEntity<>(eventRepository.findAll(), HttpStatusCode.valueOf(200));
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return new ResponseEntity<>(HttpStatusCode.valueOf(500));
         }
-        List<Event> events = eventRepository.findAll();
-        return new ResponseEntity<>(HttpStatusCode.valueOf(200), events);
+
     }
 }
