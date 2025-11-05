@@ -8,6 +8,7 @@ public class Product {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id", nullable = false, updatable = false)
+    @Id
     public int product_id;
 
     public String product_name;

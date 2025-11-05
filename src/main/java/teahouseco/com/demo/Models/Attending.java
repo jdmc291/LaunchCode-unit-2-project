@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 
 public class Attending {
     @EmbeddedId
+    @Id
     public AttendingIds id;
 
     @ManyToOne
