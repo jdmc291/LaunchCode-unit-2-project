@@ -11,13 +11,15 @@ import teahouseco.com.demo.Repositories.EventRepository;
 
 import java.util.List;
 
+
 @RestController
+@RequestMapping("/api/events")
 public class EventsController {
 
     @Autowired
     EventRepository eventRepository;
 
-    @GetMapping(value = "/events")
+    @GetMapping("/getAllEvents")
     public ResponseEntity<List<Event>> getAllEvents() {
         try{
             return new ResponseEntity<>(eventRepository.findAll(), HttpStatusCode.valueOf(200));
