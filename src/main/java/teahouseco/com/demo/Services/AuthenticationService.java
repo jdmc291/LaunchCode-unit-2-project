@@ -1,4 +1,4 @@
 package teahouseco.com.demo.Services;
 
-public interface AutheticationService {
+public interface AuthenticationService {
 }
