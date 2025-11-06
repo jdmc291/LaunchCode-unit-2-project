@@ -20,7 +20,9 @@ public class User implements UserDetails {
     public String last_name;
     public String email;
     public String password;
-    public boolean isPremium;
+
+
+    public boolean is_Premium;
 
 
     public int getCustomer_id() {
@@ -94,11 +96,11 @@ public class User implements UserDetails {
     }
 
     public boolean isPremium() {
-        return isPremium;
+        return is_Premium;
     }
 
     public void setPremium(boolean premium) {
-        isPremium = premium;
+        is_Premium = premium;
     }
 
 
