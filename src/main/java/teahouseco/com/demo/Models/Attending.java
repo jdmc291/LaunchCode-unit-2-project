@@ -13,7 +13,7 @@ public class Attending {
     @ManyToOne
     @MapsId("customer_id")
     @JoinColumn(name = "customer_id")
-    public Customer customer;
+    public User customer;
 
     @ManyToOne
     @MapsId("event_id")
