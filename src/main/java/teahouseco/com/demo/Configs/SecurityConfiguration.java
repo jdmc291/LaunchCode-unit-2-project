@@ -1,5 +1,6 @@
 package teahouseco.com.demo.Configs;
 
+import teahouseco.com.demo.Configs.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,8 +26,8 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/**").permitAll() // Open all endpoints in AuthController
-                        .requestMatchers("/user/**").authenticated() // Protect all endpoints in UserController
+                        .requestMatchers("/api/**").permitAll()
+//                        .requestMatchers("/user/**").authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
