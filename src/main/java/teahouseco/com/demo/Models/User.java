@@ -1,18 +1,21 @@
 package teahouseco.com.demo.Models;
 
 import jakarta.persistence.*;
-import org.apache.catalina.LifecycleState;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity
 @Table(name = "customers")
 
-public class Customer {
+public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id", nullable = false,updatable = false)
     @Id
-    public int customer_id;
+    public int id;
+
     public String first_name;
     public String last_name;
     public String email;
@@ -21,11 +24,11 @@ public class Customer {
 
 
     public int getCustomer_id() {
-        return customer_id;
+        return id;
     }
 
     public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+        this.id = customer_id;
     }
 
     public String getFirst_name() {
@@ -52,8 +55,38 @@ public class Customer {
         this.email = email;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of();
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return UserDetails.super.isAccountNonExpired();
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return UserDetails.super.isAccountNonLocked();
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return UserDetails.super.isCredentialsNonExpired();
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return UserDetails.super.isEnabled();
     }
 
     public void setPassword(String password) {
