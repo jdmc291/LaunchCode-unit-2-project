@@ -14,6 +14,7 @@ import java.util.function.Function;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import teahouseco.com.demo.Models.User;
 
 @Service
 public class JWTService {
@@ -29,6 +30,7 @@ public class JWTService {
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
+
         return claimsResolver.apply(claims);
     }
 
@@ -37,6 +39,10 @@ public class JWTService {
     }
 
     public String generateToken(Map<String, Object> extraClaims, UserDetails userDetails) {
+
+        extraClaims.put("id", ((User) userDetails).getCustomer_id());
+        extraClaims.put("name", ((User) userDetails).getFirst_name());
+        extraClaims.put("isPremium", ((User) userDetails).isPremium());
         return buildToken(extraClaims, userDetails, jwtExpiration);
     }
 
