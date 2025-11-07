@@ -63,4 +63,9 @@ public class AttendingService {
         Optional<Event> event = eventRepository.findById(id);
         return event.orElse(null);
     }
+
+    public void UpdateReservation(ReservationDTO reservation) {
+
+        attendingRepository.save();
+    }
 }
