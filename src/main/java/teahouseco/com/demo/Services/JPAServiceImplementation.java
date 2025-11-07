@@ -8,12 +8,12 @@ import teahouseco.com.demo.Repositories.EventRepository;
 import java.util.List;
 
 @Service
-public class JPAServiceImplementation implements JPAService {
+public class JPAServiceImplementation {
 
     @Autowired
     EventRepository eventRepository;
 
-    @Override
+
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
     }
