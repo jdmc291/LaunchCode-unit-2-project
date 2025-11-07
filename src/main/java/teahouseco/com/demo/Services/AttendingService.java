@@ -1,5 +1,6 @@
 package teahouseco.com.demo.Services;
 
+import jakarta.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import teahouseco.com.demo.DTOs.ReservationDTO;
@@ -39,12 +40,27 @@ public class AttendingService {
         newReservation.additional_info =
                 myReservation.getAdditionalInfo();
 
-        Optional<User> referencedUser =
-                userRepository.findById(myReservation.getUserId());
+        User referencedUser = findUserById(myReservation.getUserId());
 
-        Optional<Attending> referencedEvent =
-                attendingRepository.findById(myReservation.getEventId());
-        //attendingRepository.save(newReservation);
+        newReservation.setCustomer(referencedUser);
 
+        Event referencedEvent = findEventById(myReservation.getEventId());
+
+        newReservation.setEvent(referencedEvent);
+
+        attendingRepository.save(newReservation);
+
+    }
+
+    @Nullable
+    public User findUserById(int id) {
+        Optional<User> user = userRepository.findById(id);
+        return user.orElse(null);
+    }
+
+    @Nullable
+    public Event findEventById(int id) {
+        Optional<Event> event = eventRepository.findById(id);
+        return event.orElse(null);
     }
 }
