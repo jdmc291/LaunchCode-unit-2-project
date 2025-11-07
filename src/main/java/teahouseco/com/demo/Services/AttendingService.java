@@ -64,8 +64,28 @@ public class AttendingService {
         return event.orElse(null);
     }
 
-    public void UpdateReservation(ReservationDTO reservation) {
+    public void UpdateReservation(ReservationDTO EnteredReservation) {
 
-        attendingRepository.save();
+        Attending updatedAttendingObject = new Attending();
+        AttendingIds updatedIds = new AttendingIds();
+        updatedIds.setCustomer_id(EnteredReservation.getUserId());
+        updatedIds.setEvent_id(EnteredReservation.getEventId());
+
+        updatedAttendingObject.setId(updatedIds);
+
+        User referencedUser = findUserById(EnteredReservation.getUserId());
+        Event referencedEvent = findEventById(EnteredReservation.getEventId());
+
+        updatedAttendingObject.setCustomer(referencedUser);
+        updatedAttendingObject.setEvent(referencedEvent);
+        updatedAttendingObject.number_of_guests =
+                EnteredReservation.getNumber_of_guests();
+        updatedAttendingObject.additional_info =
+                EnteredReservation.getAdditionalInfo();
+
+
+
+
+        attendingRepository.save(updatedAttendingObject);
     }
 }
