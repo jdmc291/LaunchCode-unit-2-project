@@ -46,4 +46,12 @@ public class EventsController {
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
+
+    @PutMapping("/updateReservation")
+    public ResponseEntity<Event> updateReservation(@RequestBody ReservationDTO myReservationDto) {
+
+
+    attendingService.UpdateReservation(myReservationDto);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
