@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.*;
 import teahouseco.com.demo.DTOs.ReservationDTO;
 import teahouseco.com.demo.Models.Event;
-import teahouseco.com.demo.Repositories.AttendingRepository;
-import teahouseco.com.demo.Repositories.EventRepository;
 import teahouseco.com.demo.Services.AttendingService;
 import teahouseco.com.demo.Services.EventService;
 
@@ -42,7 +40,7 @@ public class EventsController {
     @PostMapping("/createReservation")
     public ResponseEntity<Event> createEvent(@RequestBody ReservationDTO myReservationDto) {
 
-        attendingService.AddReservation(myReservationDto);
+        attendingService.RemoveReservation(myReservationDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
@@ -50,8 +48,14 @@ public class EventsController {
     @PutMapping("/updateReservation")
     public ResponseEntity<Event> updateReservation(@RequestBody ReservationDTO myReservationDto) {
 
+        attendingService.UpdateReservation(myReservationDto);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
-    attendingService.UpdateReservation(myReservationDto);
+    @DeleteMapping("/deleteReservation")
+    public ResponseEntity<Event> deleteReservation(@RequestBody ReservationDTO myReservationDto) {
+
+        attendingService.RemoveReservation(myReservationDto);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
