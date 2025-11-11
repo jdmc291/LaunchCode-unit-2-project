@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.*;
 import teahouseco.com.demo.DTOs.ReservationDTO;
+import teahouseco.com.demo.DTOs.ReservationDeleteDTO;
 import teahouseco.com.demo.Models.Event;
 import teahouseco.com.demo.Services.AttendingService;
 import teahouseco.com.demo.Services.EventService;
@@ -40,7 +41,7 @@ public class EventsController {
     @PostMapping("/createReservation")
     public ResponseEntity<Event> createEvent(@RequestBody ReservationDTO myReservationDto) {
 
-        attendingService.RemoveReservation(myReservationDto);
+        attendingService.AddReservation(myReservationDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
@@ -53,7 +54,7 @@ public class EventsController {
     }
 
     @DeleteMapping("/deleteReservation")
-    public ResponseEntity<Event> deleteReservation(@RequestBody ReservationDTO myReservationDto) {
+    public ResponseEntity<Event> deleteReservation(@RequestBody ReservationDeleteDTO myReservationDto) {
 
         attendingService.RemoveReservation(myReservationDto);
         return new ResponseEntity<>(HttpStatus.OK);
