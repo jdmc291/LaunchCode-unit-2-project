@@ -1,0 +1,23 @@
+package teahouseco.com.demo.DTOs;
+
+public class ReservationDeleteDTO {
+
+    public int userId;
+    public int eventId;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
+    }
+}
