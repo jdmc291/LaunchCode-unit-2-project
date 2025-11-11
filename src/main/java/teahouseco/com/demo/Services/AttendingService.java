@@ -4,6 +4,7 @@ import jakarta.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import teahouseco.com.demo.DTOs.ReservationDTO;
+import teahouseco.com.demo.DTOs.ReservationDeleteDTO;
 import teahouseco.com.demo.Models.Attending;
 import teahouseco.com.demo.Models.AttendingIds;
 import teahouseco.com.demo.Models.Event;
@@ -89,7 +90,7 @@ public class AttendingService {
         attendingRepository.save(updatedAttendingObject);
     }
 
-    public void RemoveReservation(ReservationDTO EnteredReservation) {
+    public void RemoveReservation(ReservationDeleteDTO EnteredReservation) {
         Attending updatedAttendingObject = new Attending();
         AttendingIds updatedIds = new AttendingIds();
         updatedIds.setCustomer_id(EnteredReservation.getUserId());
@@ -102,10 +103,7 @@ public class AttendingService {
 
         updatedAttendingObject.setCustomer(referencedUser);
         updatedAttendingObject.setEvent(referencedEvent);
-        updatedAttendingObject.number_of_guests =
-                EnteredReservation.getNumber_of_guests();
-        updatedAttendingObject.additional_info =
-                EnteredReservation.getAdditionalInfo();
+
 
         attendingRepository.delete(updatedAttendingObject);
     }
