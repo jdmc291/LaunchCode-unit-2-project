@@ -25,8 +25,7 @@ public class EventsController {
     @Autowired
     AttendingService attendingService;
 
-//    @Autowired
-//    AttendingRepository attendingRepository;
+
 
     @GetMapping("/getAllEvents")
     public ResponseEntity<List<Event>> getAllEvents() {
