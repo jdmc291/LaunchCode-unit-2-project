@@ -41,7 +41,7 @@ const CreateEventForm = (props) => {
         }).then(response => {
 
             if (!response.ok) {
-                console.log(response)
+                
                 setSubmitMessage("Something went wrong. Please change input and try again")
             }
             else {
