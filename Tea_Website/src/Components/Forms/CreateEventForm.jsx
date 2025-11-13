@@ -29,7 +29,7 @@ const CreateEventForm = (props) => {
 
         }
 
-        console.log("here" + JSON.stringify(newToken.id));
+
 
         fetch('http://localhost:8080/api/events/createReservation', {
             method: 'POST',
