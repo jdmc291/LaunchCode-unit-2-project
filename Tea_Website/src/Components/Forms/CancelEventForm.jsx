@@ -56,7 +56,7 @@ const CancelEventForm = (props) => {
                 <TeaHouseCloseButton setSwitch={setState} className="form-close-button" />
 
                 <h1 className="location-title">Cancel Reservation</h1>
-                <form id="create-form-element" onSubmit={(e) => handleCreateRequest(e)}>
+                <form onSubmit={(e) => handleCreateRequest(e)}>
 
                     <p className="cancel-text"> Are you sure you want to confirm your cancellation? </p> <br></br><p className="cancel-text"> This action cannot be undone.</p> <br></br>
 
