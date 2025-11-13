@@ -34,7 +34,7 @@ const ShoppingPage = () => {
                 setTeaItems(myData);
  
             })
-        })
+        },[])
 
         return (
 

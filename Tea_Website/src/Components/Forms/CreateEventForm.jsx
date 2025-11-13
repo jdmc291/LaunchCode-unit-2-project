@@ -76,7 +76,7 @@ const CreateEventForm = (props) => {
                 <TeaHouseCloseButton setSwitch={setState} className="form-close-button" />
 
                 <h1 className="location-title">Create Your Reservation</h1>
-                <form id="create-form-element" onSubmit={(e) => handleCreateRequest(e)}>
+                <form  onSubmit={(e) => handleCreateRequest(e)}>
                     <label className="member-labels" htmlFor="guest-number">Number of Guests: </label>
                     <input className="member-input" id="guest-number" type="number" placeholder="0" max={3} required onChange={(e) => handleNumChange(e)} />
                     <br></br>
