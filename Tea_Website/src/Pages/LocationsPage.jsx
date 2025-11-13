@@ -9,6 +9,8 @@ const LocationsPage = () => {
     const [eventData, setEventData] = useState([])
     
 
+    
+
     useEffect(() => {
 
         let token = localStorage?.getItem("TeaHouseToken");
@@ -49,7 +51,7 @@ const LocationsPage = () => {
             }
             )
         }
-    }, )
+    },[isPremiumMember] )
 
     return (
         <>
