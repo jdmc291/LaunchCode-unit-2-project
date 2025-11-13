@@ -92,31 +92,6 @@ const CreateEventForm = (props) => {
 
                 </form>
 
-
-                {/* <div id="create-content-box"> */}
-                {/* <div id="member-registration-area"> */}
-                {/* <form id="create-form-element" onSubmit={(e) => handleSubmission(e)} >
-
-
-                        <br></br>
-                        <label className="member-labels" htmlFor="sign-up-email">Email: </label>
-                        <input className="member-input" id="sign-up-email" type="email" placeholder="theteahouse@company.com" required onChange={(e) => handleEmailChange(e)} />
-                        <br></br>
-
-                        <label className="member-labels" htmlFor="password-input">Password: </label>
-                        <input className="member-input" id="password-input" type="password" placeholder="Enter Your Password" required onChange={(e) => handlePasswordChange(e)} />
-
-                        <br></br>
-                        <br></br>
-
-                        <input type="submit" id="form-submit-button" className="teahouse-close-button"></input>
-
-                        <br></br>
-
-                        {submitMessage}
-
-                    </form>  */}
-
             </div>
         </>
     )
