@@ -5,7 +5,7 @@ import EventCard from "../Components/EventCard";
 
 const LocationsPage = () => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isPremiumMember, setIsPremiumMember] = useState(false);
     const [eventData, setEventData] = useState([])
     
 
@@ -16,14 +16,14 @@ const LocationsPage = () => {
 
         if (token !== null) {
             let decodedMessageObject = jwtDecode(token);
-            setIsLoggedIn(decodedMessageObject.isPremium)
+            setIsPremiumMember(decodedMessageObject.isPremium)
         } else {
 
-            setIsLoggedIn(false);
+            setIsPremiumMember(false);
 
         }
 
-        if (isLoggedIn === false) {
+        if (isPremiumMember === true) {
 
             fetch('http://localhost:8080/api/events/getAllEvents', {
                 method: 'GET',
@@ -56,7 +56,7 @@ const LocationsPage = () => {
             <section id="locations-section">
 
                 {
-                    isLoggedIn ?
+                    isPremiumMember ?
                     
                     (
                         
