@@ -33,7 +33,7 @@ const HomePage = () => {
             <div id="become-a-member-area">
                 <div id="become-member-box">
                     <p id="become-member-text" className="premium-style" onClick={() => handleForm()}>
-                        Become A Member Today
+                        Sign in
                     </p>
                 </div>
             </div>
